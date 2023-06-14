@@ -248,5 +248,3 @@ We would like to acknowledge the following resources and projects that have insp
 For any questions or support, please contact the project maintainers at [Team-Zenith](mailto:saheedibrahimdamilare@gmail.com).
 
 
-## Prerequisites
-
