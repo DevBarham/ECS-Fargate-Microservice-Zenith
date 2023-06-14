@@ -54,11 +54,12 @@ Before launching the solution please follow the next steps:
 
 Install Terraform, use Terraform v0.13 or above. You can visit this Terraform official webpage to download it.
 Configure the AWS credentials into your machine (~/.aws/credentials). You need to use the following format:
-    ```shell
+    
+```shell
     [AWS_PROFILE_NAME]
     aws_access_key_id = Replace_with_the_correct_access_Key
     aws_secret_access_key = Replace_with_the_correct_secret_Key
-    ```
+```
 Generate a GitHub token. You can follow this steps to generate it.
 Usage
 1. Fork this repository and create the GitHub token granting access to this new repository in your account.
