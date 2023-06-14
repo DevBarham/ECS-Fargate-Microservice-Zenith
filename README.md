@@ -1,6 +1,6 @@
 # ECS Fargate Microservice Zenith
 
-![Zenith](./zenith_logo.png)
+![Zenith]
 
 Zenith is a microservice-based application built using AWS ECS Fargate. It provides a scalable and resilient architecture for deploying and managing microservices in a containerized environment.
 
@@ -36,6 +36,7 @@ Security Groups for ALBs and ECS tasks
 1 DynamoDB table (used by the application)
 1 SNS topic for notifications
 
+![ecs-fargate](https://github.com/DevBarham/ECS-Fargate-Microservice-Zenith/assets/58726365/542b36c8-4829-402c-bfd1-a13e1762a69b)
 
 ## Prerequisites
 
