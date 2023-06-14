@@ -29,3 +29,42 @@ module "target_group_server_blue" {
   health_check_path   = "/status"
   health_check_port   = var.port_app_server
 }
+# ------- Creating Target Group for the server ALB green environment -------
+module "target_group_server_green" {
+  source              = "./modules/alb"
+  create_target_group = true
+  name                = "tg-${var.environment_name}-s-g"
+  port                = 80
+  protocol            = "HTTP"
+  vpc                 = module.networking.aws_vpc
+  tg_type             = "ip"
+  health_check_path   = "/status"
+  health_check_port   = var.port_app_server
+}
+
+# ------- Creating Target Group for the client ALB blue environment -------
+module "target_group_client_blue" {
+  source              = "./modules/alb"
+  create_target_group = true
+  name                = "tg-${var.environment_name}-c-b"
+  port                = 80
+  protocol            = "HTTP"
+  vpc                 = module.networking.aws_vpc
+  tg_type             = "ip"
+  health_check_path   = "/"
+  health_check_port   = var.port_app_client
+}
+
+
+# ------- Creating Target Group for the client ALB green environment -------
+module "target_group_client_green" {
+  source              = "./modules/alb"
+  create_target_group = true
+  name                = "tg-${var.environment_name}-c-g"
+  port                = 80
+  protocol            = "HTTP"
+  vpc                 = module.networking.aws_vpc
+  tg_type             = "ip"
+  health_check_path   = "/"
+  health_check_port   = var.port_app_client
+}
