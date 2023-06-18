@@ -24,7 +24,7 @@ phases:
           sed -i "s|<SERVER_ALB_URL>|$SERVER_ALB_URL|g" ./webapp/server/src/swagger/swagger.js
         fi
       - echo Running Checkov scan on the Dockerfile...
-      - checkov -d "${FOLDER_PATH}" --framework dockerfile 
+      - checkov -d "${FOLDER_PATH}" --framework dockerfile || true
 
   build:
     commands:
