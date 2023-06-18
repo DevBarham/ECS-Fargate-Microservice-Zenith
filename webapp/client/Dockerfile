@@ -9,6 +9,8 @@ RUN npm install
 
 COPY . .
 
+RUN npm list @vue/cli-service
+
 RUN npm run build
 
 # production stage
