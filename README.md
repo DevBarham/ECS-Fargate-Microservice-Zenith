@@ -77,7 +77,7 @@ cd Infrastructure/
 ```shell
 terraform init
 ``` 
-4. Run the terraform plan command, feel free to use a tfvars file to specify the variables. You need to set at least the following variables:
+4. Run the terraform plan command, feel free to use a tfvars file to specify the variables. You need to set at least the following variables in which we have default values for our use cases set already except the token:
 
 - aws_profile = according to the profiles name in ~/.aws/credentials
 - aws_region = the AWS region in which you want to create the resources
@@ -85,17 +85,15 @@ terraform init
 - github_token = your GitHub token, the one generated a few steps above
 - repository_name = your GitHub repository name
 - repository_owner = the owner of the GitHub repository used
-```shell
-terraform plan -var aws_profile="your-profile" -var aws_region="your-region" -var environment_name="your-env" -var github_token="your-personal-token" -var repository_name="your-github-repository" -var repository_owner="the-github-repository-owner"
-```
+- 
 Example of the previous command with replaced dummy values:
 ```shell
-terraform plan -var aws_profile="development" -var aws_region="eu-central-1" -var environment_name="developmentenv" -var github_token="your-personal-token" -var repository_name="your-github-repository" -var repository_owner="the-github-repository-owner"
+terraform plan -var github_token="ghp_sample" -auto-approve
 ```
 5. Review the terraform plan, take a look at the changes that terraform will execute:
 
 ```shell
-terraform apply -var aws_profile="your-profile" -var aws_region="your-region" -var environment_name="your-env" -var github_token="your-personal-token" -var repository_name="your-github-repository" -var repository_owner="the-github-repository-owner"
+terraform apply -var github_token="ghp_sample" -auto-approve
 ```
 6. Once Terraform finishes the deployment, open the AWS Management Console and go to the AWS CodePipeline service. You will see that the pipeline, which was created by this Terraform code, is in progress. Add some files and DynamoDB items as mentioned here. Once the pipeline finished successfully and the before assets were added, go back to the console where Terraform was executed, copy the application_url value from the output and open it in a browser.
 
@@ -113,11 +111,11 @@ To execute it, run the following commands:
 Frontend layer:
 ```shell
 
-artillery run Code/client/src/tests/stresstests/stress_client.yml
+artillery run webapp/client/src/tests/stresstests/stress_client.yml
 Backend layer:
 ```
 ```shell
-artillery run Code/server/src/tests/stresstests/stress_server.yml
+artillery run webapp/server/src/tests/stresstests/stress_server.yml
 ```
 To learn more about Amazon ECS Autoscaling, please take a look to the documentation.
 
@@ -167,7 +165,7 @@ The server exposes 3 endpoints:
 Cleanup
 Run the following command if you want to delete all the resources created before:
 ```shell
-terraform destroy -var aws_profile="your-profile" -var AWS_REGION="your-region" -var environment_name="your-env" -var github_token="your-personal-token" -var repository_name="your-github-repository" - var repository_owner="the-github-repository-owner"
+terraform destroy -var github_token="ghp_sample" -auto-approve
 ```
 
 ## Getting Started
@@ -251,5 +249,3 @@ We would like to acknowledge the following resources and projects that have insp
 ## Contact
 
 For any questions or support, please contact the project maintainers at [Team-Zenith](mailto:saheedibrahimdamilare@gmail.com).
-
-
