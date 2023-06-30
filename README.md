@@ -6,6 +6,11 @@ Zenith is a microservice-based application built using AWS ECS Fargate. It provi
 
 This repository contains the source code and configuration files for deploying and running Zenith on AWS ECS Fargate. It includes the necessary infrastructure setup, Dockerfiles, and sample microservices.
 
+## Outputs
+
+![Screenshot from 2023-06-30 10-00-30](https://github.com/DevBarham/ECS-Fargate-Microservice-Zenith/assets/58726365/08407f0a-dd80-4f0f-944c-a31cae3131d8)
+![Screenshot from 2023-06-30 10-00-48](https://github.com/DevBarham/ECS-Fargate-Microservice-Zenith/assets/58726365/3006d01b-cea1-46c0-986f-9dab7668fb66)
+
 ## Features
 
 - Microservice architecture: Zenith is designed as a collection of independent microservices, each serving a specific business function.
